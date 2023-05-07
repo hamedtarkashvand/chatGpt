@@ -25,7 +25,7 @@ const NewChat: FC<NewChatProps> = () => {
   return (
     <div
       onClick={() => createNewChat()}
-      className='chatRow   rounded-md border border-gray-700'>
+      className='chatRow rounded-md border border-gray-700'>
       <PlusIcon className='h-4 w-4' />
       <p>New chat</p>
     </div>

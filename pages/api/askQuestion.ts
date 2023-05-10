@@ -1,5 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { query } from 'firebase/firestore';
+// import { query } from 'firebase/firestore';
+import { adminDb } from '@/firebaseAdmin';
+import query from '@/lib/queryApi';
+import admin from 'firebase-admin';
+
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
@@ -10,16 +14,44 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-    const { prompt, chatId, model, session } = req.body;
+  const { prompt, chatId, model, session } = req.body;
+    console.log(req.body)
+  if (!prompt) {
+    res.status(400).json({ answer: 'please provide a prompt' });
+  }
 
-    if (!prompt) {
-        res.status(400).json({answer:'please provide a prompt'})
-    }
+  if (!chatId) {
+    res.status(400).json({ answer: 'please provide a valid chat id' });
+  }
 
-    if (!chatId) {
-      res.status(400).json({ answer: 'please provide a valid chat id' });
-    }
+  try {
+    const response = await query(prompt, chatId, model);
     
-    // await const response = query(prompt,chatId,model)
-  res.status(200).json({ answer: 'John Doe' });
+    const message: Message = {
+      text: response || 'Chat Gpt was unable to find an answer for that!',
+      createdAt: admin.firestore.Timestamp.now(),
+      user: {
+        _id: 'Chat Gpt',
+        name: 'Chat Gpt',
+        avatar: '/static/logo.png',
+      },
+    };
+
+    await adminDb
+      .collection('users')
+      .doc(session?.user?.email)
+      .collection('chats')
+      .doc(chatId)
+      .collection('messages')
+      .add(message).then(() => {
+         res.status(200).json({ answer: message.text });
+      }).catch((err) => {
+        console.log(err);
+        res.status(500).json({ answer: message.text });
+      });
+
+   
+  } catch(err) {
+    res.status(500).json({answer: 'errore jojo'});
+  }
 }

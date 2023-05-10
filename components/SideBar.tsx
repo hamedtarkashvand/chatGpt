@@ -13,8 +13,6 @@ const SideBar: FC<sidebarProps> = () => {
   const { data: session } = useSession();
   const route = useRouter()
 
-
-
   const [chats, loading, error] = useCollection(
     session &&
       query(
@@ -26,18 +24,29 @@ const SideBar: FC<sidebarProps> = () => {
 
   
   if (error) {
+    console.log(error);
+    
     return (
-      <div className='bg-red-400 text-red-800 p-5 rounded-lg'>somting wnat errore</div>
+      <div className='bg-red-400 text-red-800 p-5 rounded-lg'>somting wnat errore saide bar</div>
     )
   }
 
  
+  
+  if (loading) {
+    return (
+      <div className='rounded-lg bg-green-400 p-5 text-green-800'>
+        loading
+      </div>
+    );
+  }
 
-  useEffect(() => {
-     if (!chats?.docs.length) {
-       route.replace('/');
-     }
-  }, []);
+
+  // useEffect(() => {
+  //    if (!chats?.docs.length && !error) {
+  //      route.replace('/');
+  //    }
+  // }, []);
 
   return (
     <div className='flex min-h-screen flex-col overflow-hidden overflow-y-auto p-4'>

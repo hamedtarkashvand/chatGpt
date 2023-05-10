@@ -1,3 +1,5 @@
+'use client';
+
 import { dbFirebase } from '@/firebase';
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
@@ -14,8 +16,10 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
   const { data: session } = useSession();
   const [prompt, setPrompt] = useState<string>('');
   const model = 'text-davinci-003';
-  const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
+
+  const handlerSendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const notfication = toast.loading('Ai is thinking...');
 
     if (!prompt) return;
 
@@ -44,35 +48,35 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
       message
     );
 
-    //TODO: start tost notfication to say sucess
-
-    const notfication = toast.loading('Ai is thinking...');
-
-    await fetch('/api/askQuestion', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        prompt: input,
-        chatId,
-        model,
-        session,
-      }),
-    }).then(() => {
+    try {
+      await fetch('/api/askQuestion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: input,
+          chatId,
+          model,
+          session,
+        }),
+      }).then(() => {
+        toast.success('Ai has responded', {
+          id: notfication,
+        });
+      });
+    } catch (err) {
       toast.success('Ai has responded', {
         id: notfication,
       });
-      // TODO: tost notfication to say sucess
-      // * install toast
-    });
+    }
   };
 
   return (
     <div className='rounded-lg bg-gray-700/50 text-sm text-gray-400'>
       <form
         action=''
-        onSubmit={sendMessage}
+        onSubmit={handlerSendMessage}
         className='flex space-x-5 p-5'>
         <input
           dir='auto'
@@ -80,7 +84,7 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
           type='text'
           disabled={!session}
           value={prompt}
-          className='flex-1  bg-transparent focus:outline-none disabled:cursor-not-allowed disabled:text-gray-300'
+          className={`flex-1  bg-transparent focus:outline-none disabled:cursor-not-allowed disabled:text-gray-300 `}
           placeholder=' type your message here...'
         />
 

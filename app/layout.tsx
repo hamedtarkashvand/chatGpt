@@ -27,7 +27,7 @@ export default async function RootLayout({ children }: PropsType) {
             <Login />
           ) : (
             <div className='flex'>
-              <div className='h-screen max-w-xs overflow-y-auto bg-[#202123] md:min-w-[5rem]'>
+              <div className='h-screen max-w-xs min-w-xs overflow-y-auto bg-[#202123] md:min-w-ws'>
                 <SideBar />
               </div>
 

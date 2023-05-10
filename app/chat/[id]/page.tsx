@@ -1,21 +1,21 @@
-'use client'
 import Chat from "@/components/Chat";
 import ChatInput from "@/components/ChatInput";
 import type { NextPage } from "next";
 
-type propsType = {
+interface propsType {
   params: {
     id:string
   };
 };
 
-const ChatPage: NextPage<propsType> = ({ params }) => {
+const ChatPage: NextPage<propsType> = ({ params:{id} }) => {
  
   return (
-    <div className="flex flex-col h-screen overflow-hidden">
-      <Chat/>
-      <ChatInput chatId={params.id}/>
-    </div>);
+    <div className='flex h-screen flex-col overflow-hidden'>
+      <Chat chatId={id} />
+      <ChatInput chatId={id} />
+    </div>
+  );
 }
 
 export default ChatPage;

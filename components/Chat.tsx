@@ -47,6 +47,7 @@ const Chat: NextPage<iPropsChat> = ({ chatId }) => {
           <ArrowDownCircleIcon className='mx-auto mt-5 h-10 w-10 animate-bounce text-white' />
         </>
       )}
+    
       {messages?.docs?.map((message) => {
         return (
           <Message

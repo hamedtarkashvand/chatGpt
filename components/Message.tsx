@@ -13,9 +13,12 @@ const Message: NextPage<TProps> = ({ message }) => {
  const isChatGpt = name == 'Chat Gpt';
  
   return (
-    <div className={`flex space-x-2 rounded-lg bg-[#202123] p-2 ${isChatGpt && 'bg-[#434654]'}`}>
+    <div
+      className={`mx-auto flex max-w-2xl  space-x-2 rounded-lg bg-[#202123] p-2 ${
+        isChatGpt && 'bg-[#434654]'
+      }`}>
       <img
-        className='sticky h-10 w-10 rounded-full top-1'
+        className='sticky top-1 h-10 w-10 rounded-full'
         src={avatar}
         alt='avatar'
       />

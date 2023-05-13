@@ -9,5 +9,5 @@ type SessionProviderProps = {
 
 export const SessionProvider = ({ children, session }: SessionProviderProps) => {
     
-  return <Provider session={session}>{children}</Provider>;
+  return <Provider>{children}</Provider>;
 };

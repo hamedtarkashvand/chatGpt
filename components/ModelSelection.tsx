@@ -1,5 +1,6 @@
 'use client';
 import type { NextPage } from 'next';
+import { useId } from 'react';
 import Select from 'react-select';
 import useSWR from 'swr';
 const fetcher = () => fetch('/api/getEngines').then((res) => res.json());
@@ -13,6 +14,7 @@ const ModelSelection: NextPage = () => {
   return (
     <div className='mt-2'>
       <Select
+        instanceId={useId()}
         className='text-black'
         options={models?.modelOptions}
         defaultValue={model}

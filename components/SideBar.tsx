@@ -37,7 +37,7 @@ const SideBar = (): JSX.Element  => {
           <NewChat />
         </div>
 
-        <div>
+        <div className='hidden md:block'>
           <ModelSelection />
         </div>
 

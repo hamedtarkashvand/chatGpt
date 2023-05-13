@@ -1,5 +1,4 @@
 'use client';
-
 import { dbFirebase } from '@/firebase';
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
@@ -7,6 +6,8 @@ import type { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-hot-toast';
 import { FormEvent, useEffect, useState } from 'react';
+import useSWR from 'swr';
+import ModelSelection from './ModelSelection';
 
 type propsType = {
   chatId: string;
@@ -16,12 +17,14 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
   const { data: session } = useSession();
   const [prompt, setPrompt] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const model = 'text-davinci-003';
+  const { data: model } = useSWR('model');
+
+  // const model = 'text-davinci-003';
 
   const handlerSendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    const notfication = toast.loading('Ai is thinking...');
+    const notfication = toast.loading('ChatGpt is thinking...');
 
     if (!prompt) return;
 
@@ -99,6 +102,9 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
           <PaperAirplaneIcon className='h-4 w-4 -rotate-45' />
         </button>
       </form>
+      <div className='md:hidden'>
+        <ModelSelection />
+      </div>
     </div>
   );
 };

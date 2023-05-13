@@ -11,9 +11,9 @@ const ModelSelection: NextPage = () => {
   });
 
   return (
-    <div className='hidden md:block'>
+    <div className='mt-2'>
       <Select
-        className='mt-2 text-black'
+        className='text-black'
         options={models?.modelOptions}
         defaultValue={model}
         placeholder={model}
@@ -21,7 +21,8 @@ const ModelSelection: NextPage = () => {
         isLoading={isLoading}
         menuPosition='fixed'
         classNames={{
-          control: (state) => 'bg-[#436554] border-[#434654] text-black',
+          control: (state) =>
+            'bg-[#434654] border-[#434654] text-black border-[#434654]',
         }}
         onChange={(option) => setModel(option.value)}
       />

@@ -15,7 +15,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const { prompt, chatId, model, session } = req.body;
-    console.log(req.body)
+  
   if (!prompt) {
     res.status(400).json({ answer: 'please provide a prompt' });
   }

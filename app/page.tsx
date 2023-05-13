@@ -1,7 +1,4 @@
-import { Inter } from 'next/font/google';
 import { BoltIcon, ExclamationCircleIcon, SunIcon } from '@heroicons/react/24/outline';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {    
   return (

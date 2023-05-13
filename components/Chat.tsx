@@ -12,7 +12,7 @@ interface iPropsChat {
 }
 const Chat: NextPage<iPropsChat> = ({ chatId }) => {
   const { data: session } = useSession();
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<null | HTMLDivElement>(null);
 
   const [messages] = useCollection(
     session &&
@@ -29,8 +29,8 @@ const Chat: NextPage<iPropsChat> = ({ chatId }) => {
       )
   );
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToBottom = () => {  
+      messagesEndRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {

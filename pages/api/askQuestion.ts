@@ -25,11 +25,7 @@ export default async function handler(
   }
 
   try {
-    const response = await query(prompt, chatId, model).catch((error) => {
-      res.status(500).json({ answer: error });
-    })
-    
-    
+    const response = await query(prompt, chatId, model);
     
     const message: Message = {
       text: response || 'Chat Gpt was unable to find an answer for that!',

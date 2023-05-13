@@ -1,6 +1,7 @@
 {
   "name": "chatgpt-massanger",
   "version": "0.1.0",
+  "author": "hamed torkashvand",
   "private": true,
   "scripts": {
     "dev": "next dev",

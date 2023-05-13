@@ -17,7 +17,9 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
   const { data: session } = useSession();
   const [prompt, setPrompt] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const { data: model } = useSWR('model');
+  const { data: model } = useSWR('model', {
+    fallbackData: 'text-davinci-003',
+  });
 
   // const model = 'text-davinci-003';
 

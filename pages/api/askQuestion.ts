@@ -2,6 +2,7 @@
 // import { query } from 'firebase/firestore';
 import { adminDb } from '@/firebaseAdmin';
 import query from '@/lib/queryApi';
+import { error } from 'console';
 import admin from 'firebase-admin';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -25,7 +26,11 @@ export default async function handler(
   }
 
   try {
-    const response = await query(prompt, chatId, model);
+    const response = await query(prompt, chatId, model).catch((error) => {
+      res.status(500).json({ answer: error });
+    })
+    
+    
     
     const message: Message = {
       text: response || 'Chat Gpt was unable to find an answer for that!',
@@ -46,8 +51,7 @@ export default async function handler(
       .add(message).then(() => {
          res.status(200).json({ answer: message.text });
       }).catch((err) => {
-        console.log(err);
-        res.status(500).json({ answer: message.text });
+        res.status(500).json({ answer: err});
       });
 
    

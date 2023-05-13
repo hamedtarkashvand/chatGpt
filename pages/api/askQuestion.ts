@@ -2,7 +2,6 @@
 // import { query } from 'firebase/firestore';
 import { adminDb } from '@/firebaseAdmin';
 import query from '@/lib/queryApi';
-import { error } from 'console';
 import admin from 'firebase-admin';
 
 import type { NextApiRequest, NextApiResponse } from 'next';

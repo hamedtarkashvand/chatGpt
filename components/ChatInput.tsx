@@ -15,10 +15,12 @@ type propsType = {
 const ChatInput: NextPage<propsType> = ({ chatId }) => {
   const { data: session } = useSession();
   const [prompt, setPrompt] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   const model = 'text-davinci-003';
 
   const handlerSendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     const notfication = toast.loading('Ai is thinking...');
 
     if (!prompt) return;
@@ -64,16 +66,18 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
         toast.success('Ai has responded', {
           id: notfication,
         });
+        setLoading(false);
       });
     } catch (err) {
-      toast.success('Ai has responded', {
+      toast.success('Ai err', {
         id: notfication,
       });
+      setLoading(false);
     }
   };
 
   return (
-    <div className='rounded-lg bg-gray-700/50 text-sm text-gray-400'>
+    <div className=' bg-gray-700/50 text-sm text-gray-400'>
       <form
         action=''
         onSubmit={handlerSendMessage}
@@ -82,7 +86,7 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
           dir='auto'
           onChange={(e) => setPrompt(e.target.value)}
           type='text'
-          disabled={!session}
+          disabled={!session || loading}
           value={prompt}
           className={`flex-1  bg-transparent focus:outline-none disabled:cursor-not-allowed disabled:text-gray-300 `}
           placeholder=' type your message here...'
@@ -90,7 +94,7 @@ const ChatInput: NextPage<propsType> = ({ chatId }) => {
 
         <button
           type='submit'
-          disabled={!session || !prompt}
+          disabled={!session || !prompt || loading}
           className='rounded bg-[#11A37F] px-4 py-2 font-bold text-white hover:opacity-50 disabled:cursor-not-allowed'>
           <PaperAirplaneIcon className='h-4 w-4 -rotate-45' />
         </button>

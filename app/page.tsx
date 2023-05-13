@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {    
   return (
-    <main className='flex h-screen overflow-y-auto flex-col items-center justify-center px-2 text-white'>
+    <main className='flex h-screen flex-col items-center justify-center overflow-y-auto px-2 text-white'>
       <h1 className='mb-20 text-5xl font-bold capitalize'>chatGPT</h1>
       <section className='flex flex-wrap items-center justify-center  space-x-2'>
         <section className='m-2'>
@@ -14,42 +14,48 @@ export default function Home() {
             <h2>Exmpales</h2>
           </div>
           <div className='space-y-2'>
-            <p className='infoText capitalize'>"explain somthing to me"</p>
             <p className='infoText capitalize'>
-              "what is differece between a dog and cat ?"
+              "Explain quantum computing in simple terms "
             </p>
             <p className='infoText capitalize'>
-              "what is the color of the sun ?"
+              "Got any creative ideas for a 10 year old’s birthday ?"
+            </p>
+            <p className='infoText capitalize'>
+              "How do I make an HTTP request in Javascript?"
             </p>
           </div>
         </section>
         <section className='m-2'>
           <div className='mb-5 flex flex-col items-center justify-center '>
             <BoltIcon className='h-8 w-8' />
-            <h2>Exmpales</h2>
+            <h2>Capabilities</h2>
           </div>
           <div className='space-y-2'>
-            <p className='infoText capitalize'>"explain somthing to me"</p>
             <p className='infoText capitalize'>
-              "what is differece between a dog and cat ?"
+              Remembers what user said earlier in the conversation
             </p>
             <p className='infoText capitalize'>
-              "what is the color of the sun ?"
+              Allows user to provide follow-up corrections
+            </p>
+            <p className='infoText capitalize'>
+              Trained to decline inappropriate requests
             </p>
           </div>
         </section>
         <section className='m-2'>
-          <div className='mb-5 flex flex-col items-center justify-center '>
-            <ExclamationCircleIcon className='h-8 w-8' />
-            <h2>Exmpales</h2>
+          <div className='mb-5 flex flex-col items-center justify-center'>
+            <ExclamationCircleIcon className='h-8 w-8'/>
+            <h2>Limitations</h2>
           </div>
           <div className='space-y-2'>
-            <p className='infoText capitalize'>"explain somthing to me"</p>
             <p className='infoText capitalize'>
-              "what is differece between a dog and cat ?"
+              May occasionally generate incorrect information
             </p>
             <p className='infoText capitalize'>
-              "what is the color of the sun ?"
+              May occasionally produce harmful instructions or biased content
+            </p>
+            <p className='infoText capitalize'>
+              Limited knowledge of world and events after 2021
             </p>
           </div>
         </section>

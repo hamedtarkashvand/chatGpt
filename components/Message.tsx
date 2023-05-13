@@ -10,19 +10,18 @@ const Message: NextPage<TProps> = ({ message }) => {
     user: { avatar, name, _id },
     text,
   } = message;
+ const isChatGpt = name == 'Chat Gpt';
  
   return (
-    <div className='flex space-x-2 rounded-lg bg-[#202123] p-2'>
+    <div className={`flex space-x-2 rounded-lg bg-[#202123] p-2 ${isChatGpt && 'bg-[#434654]'}`}>
       <img
-        className='sticky h-10 w-10 rounded-full '
+        className='sticky h-10 w-10 rounded-full top-1'
         src={avatar}
         alt='avatar'
       />
-      <div className='flex flex-1 flex-col'>
+      <div className={`flex flex-1 flex-col ${isRTL(text) && 'rtl'}`}>
         <p className='text-sm text-white/70'>{name}</p>
-        <div className={`w-full rounded-sm text-white ${isRTL(text) && 'rtl'}`}>
-          {text}
-        </div>
+        <div className='w-full rounded-sm text-white'>{text}</div>
       </div>
     </div>
   );

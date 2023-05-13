@@ -1,4 +1,4 @@
-import { SessionProvider  } from '@/components/SessionProvider ';
+import { SessionProvider } from '@/components/SessionProvider ';
 import { getServerSession } from 'next-auth/next';
 import type { ReactNode } from 'react';
 
@@ -17,6 +17,7 @@ type PropsType = {
 };
 
 
+
 export default async function RootLayout({ children }: PropsType) {
   const session = await getServerSession(authOptions);
   return (
@@ -27,7 +28,7 @@ export default async function RootLayout({ children }: PropsType) {
             <Login />
           ) : (
             <div className='flex'>
-              <div className='h-screen max-w-xs min-w-xs overflow-y-auto bg-[#202123] md:min-w-ws'>
+              <div className='h-screen max-w-xs overflow-y-auto bg-[#202123] '>
                 <SideBar />
               </div>
 

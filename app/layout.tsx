@@ -10,6 +10,9 @@ import ClientProvider from '@/components/ClientProvider';
 export const metadata = {
   title: 'Chat Gpt messanger',
   description: 'tarining next Js',
+  viewport:
+    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+  themeColor: '#202123',
 };
 
 type PropsType = {

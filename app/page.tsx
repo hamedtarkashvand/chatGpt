@@ -6,9 +6,11 @@ import {
 
 export default function Home() {
   return (
-    <main className='flex h-screen flex-col items-center overflow-hidden md:justify-center overflow-y-auto px-2 text-white'>
-      <h1 className='mb-20 text-5xl font-bold capitalize hidden md:inline-flex'>chatGPT</h1>
-      <section className='flex flex-wrap items-center justify-center  space-x-2'>
+    <main className='flex h-screen flex-col items-center overflow-hidden overflow-y-auto px-2 text-white md:justify-center'>
+      <h1 className='my-0 text-xl font-bold capitalize md:my-20  md:text-5xl'>
+        chatGPT
+      </h1>
+      <section className='flex flex-wrap items-center justify-center space-x-2'>
         <section className='m-2'>
           <div className='mb-5 flex flex-col items-center justify-center '>
             <SunIcon className='h-8 w-8' />

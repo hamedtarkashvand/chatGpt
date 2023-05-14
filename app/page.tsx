@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className='flex h-screen flex-col items-center overflow-hidden overflow-y-auto px-2 text-white md:justify-center'>
       <h1 className='my-0 text-xl font-bold capitalize md:my-20  md:text-5xl'>
-        chatGPT
+        chatGPT  
       </h1>
       <section className='flex flex-wrap items-center justify-center space-x-2'>
         <section className='m-2'>

@@ -59,7 +59,7 @@ const ChatRow: NextPage<propsType> = ({ id, skeleton }) => {
     <>
       <Link
         href={`/chat/${id}`}
-        className={`chatRow justify-center overflow-hidden rounded-lg ${
+        className={`chatRow overflow-hidden rounded-lg justify-between md:justify-center ${
           active && 'bg-gray-700/70'
         }`}>
         <ChatBubbleLeftIcon className='h-5 w-5' />

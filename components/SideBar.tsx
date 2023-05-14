@@ -31,7 +31,7 @@ const SideBar = (): JSX.Element  => {
   }
 
   return (
-    <div className='flex min-h-screen flex-col overflow-hidden overflow-y-auto p-4'>
+    <div className='flex h-screen flex-col overflow-hidden overflow-y-auto p-4'>
       <div className='flex-1 space-y-2'>
         <div>
           <NewChat />

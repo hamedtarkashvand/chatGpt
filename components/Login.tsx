@@ -9,7 +9,7 @@ interface LoginProps {}
 const Login: FC<LoginProps> = ({}) => {
   return (
     <div>
-      <div className='flex min-h-screen flex-col items-center justify-center  bg-[#11A37f]'>
+      <div className='flex h-screen flex-col items-center justify-center  bg-[#11A37f]'>
         <Image
           className='mt-auto'
           src='/static/logo.png'

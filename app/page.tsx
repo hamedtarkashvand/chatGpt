@@ -1,9 +1,13 @@
-import { BoltIcon, ExclamationCircleIcon, SunIcon } from '@heroicons/react/24/outline';
+import {
+  BoltIcon,
+  ExclamationCircleIcon,
+  SunIcon,
+} from '@heroicons/react/24/outline';
 
-export default function Home() {    
+export default function Home() {
   return (
-    <main className='flex h-screen flex-col items-center justify-center overflow-y-auto px-2 text-white'>
-      <h1 className='mb-20 text-5xl font-bold capitalize'>chatGPT</h1>
+    <main className='flex h-screen flex-col items-center overflow-hidden md:justify-center overflow-y-auto px-2 text-white'>
+      <h1 className='mb-20 text-5xl font-bold capitalize hidden md:inline-flex'>chatGPT</h1>
       <section className='flex flex-wrap items-center justify-center  space-x-2'>
         <section className='m-2'>
           <div className='mb-5 flex flex-col items-center justify-center '>
@@ -41,7 +45,7 @@ export default function Home() {
         </section>
         <section className='m-2'>
           <div className='mb-5 flex flex-col items-center justify-center'>
-            <ExclamationCircleIcon className='h-8 w-8'/>
+            <ExclamationCircleIcon className='h-8 w-8' />
             <h2>Limitations</h2>
           </div>
           <div className='space-y-2'>

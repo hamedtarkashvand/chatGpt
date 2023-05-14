@@ -26,21 +26,23 @@ export default async function RootLayout({ children }: PropsType) {
   return (
     <html lang='en'>
       <body>
-        <SessionProvider session={session}>
-          {!session ? (
-            <Login />
-          ) : (
-            <div className='flex'>
-              <div className='h-screen max-w-xs md:min-w-[20rem] overflow-y-auto bg-[#202123] '>
-                <SideBar />
-              </div>
-            
-              <ClientProvider />
+        <div className='h-screen overflow-hidden'>
+          <SessionProvider session={session}>
+            {!session ? (
+              <Login />
+            ) : (
+              <div className='flex'>
+                <div className='h-screen max-w-xs overflow-y-auto bg-[#202123] md:min-w-[20rem] '>
+                  <SideBar />
+                </div>
 
-              <div className='flex-1 bg-[#343541]'>{children}</div>
-            </div>
-          )}
-        </SessionProvider>
+                <ClientProvider />
+
+                <div className='flex-1 bg-[#343541]'>{children}</div>
+              </div>
+            )}
+          </SessionProvider>
+        </div>
       </body>
     </html>
   );

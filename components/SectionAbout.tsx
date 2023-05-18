@@ -1,4 +1,4 @@
-import type { NextComponentType, NextPageContext } from "next";
+import type { NextComponentType, NextPageContext } from 'next';
 import {
   BoltIcon,
   ExclamationCircleIcon,
@@ -8,10 +8,10 @@ import {
 interface Props {}
 
 const SectionAbout: NextComponentType<NextPageContext, {}, Props> = (
-  props: Props,
+  props: Props
 ) => {
   return (
-    <section className='mt-6 flex flex-wrap items-center justify-center space-x-2'>
+    <section className='mt-6  flex flex-grow flex-wrap items-center justify-center space-x-2 overflow-y-auto md:flex md:flex-grow-0'>
       <section className='m-2'>
         <div className='mb-5 flex flex-col items-center justify-center '>
           <SunIcon className='h-8 w-8 text-[#11A37F]' />
@@ -65,6 +65,6 @@ const SectionAbout: NextComponentType<NextPageContext, {}, Props> = (
       </section>
     </section>
   );
-}
+};
 
-export default SectionAbout
+export default SectionAbout;

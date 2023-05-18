@@ -5,11 +5,11 @@ import { questionContext } from '@/app/context/question/QuestionProvider';
 import Message from './Message';
 import SectionAbout from './SectionAbout';
 
-const QuestionMessages: NextPage = () => {
+const WrapperMessages: NextPage = ({render}:any) => {
   const { state: chats } = useContext(questionContext);
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
 
-  if (!chats.length) return <SectionAbout />;
+  // if (!chats.length) return <SectionAbout />;
 
   const scrollToBottom = () => {
     messagesEndRef?.current?.scrollIntoView({ behavior: 'smooth' });
@@ -22,7 +22,7 @@ const QuestionMessages: NextPage = () => {
   return (
     <>
       <div
-        onClick={scrollToBottom}
+       
         className='mb-6 w-full flex-1 space-y-3 overflow-y-auto p-4  md:max-h-96 md:w-2/4 md:flex-none md:flex-col '>
         {chats?.map((message) => {
           return (
@@ -38,4 +38,4 @@ const QuestionMessages: NextPage = () => {
   );
 };
 
-export default QuestionMessages;
+export default WrapperMessages;

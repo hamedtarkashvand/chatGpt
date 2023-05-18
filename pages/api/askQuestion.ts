@@ -15,17 +15,28 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const { prompt, chatId, model, session } = req.body;
-  
+        console.log(prompt, chatId, model, session);
+
   if (!prompt) {
     res.status(400).json({ answer: 'please provide a prompt' });
   }
 
   if (!chatId) {
-    res.status(400).json({ answer: 'please provide a valid chat id' });
+    res.status(400).json({ answer: 'please provide a valid chat id'});
   }
 
   try {
     const response = await query(prompt, chatId, model);
+      console.log(response);
+      
+    if (prompt && chatId && !session) {
+       res
+         .status(200)
+         .json({
+           answer:
+             response || 'Chat Gpt was unable to find an answer for that!',
+         });
+    }
     
     const message: Message = {
       text: response || 'Chat Gpt was unable to find an answer for that!',

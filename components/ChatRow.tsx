@@ -38,7 +38,7 @@ const ChatRow: NextPage<propsType> = ({ id, skeleton }) => {
     await deleteDoc(
       doc(dbFirebase, 'users', session?.user?.email!, 'chats', id)
     );
-    route?.replace('/');
+    route?.replace('/dashboard');
   };
 
   useEffect(() => {
@@ -58,8 +58,8 @@ const ChatRow: NextPage<propsType> = ({ id, skeleton }) => {
   return (
     <>
       <Link
-        href={`/chat/${id}`}
-        className={`chatRow overflow-hidden rounded-lg justify-between md:justify-center ${
+        href={`/dashboard/chat/${id}`}
+        className={`chatRow justify-between overflow-hidden rounded-lg md:justify-center ${
           active && 'bg-gray-700/70'
         }`}>
         <ChatBubbleLeftIcon className='h-5 w-5' />

@@ -18,7 +18,7 @@ const Message: NextPage<TProps> = ({ message }) => {
         isChatGpt && 'bg-[#434654]'
       }`}>
       <img
-        className='sticky top-1 h-10 w-10 rounded-full'
+        className='sticky top-1 h-10 w-10 rounded-full object-cover'
         src={avatar}
         alt='avatar'
       />

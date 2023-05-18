@@ -27,7 +27,7 @@ const SideBar = (): JSX.Element  => {
      toast.error('sometime errore app');
   }
   if (!loading && !error) {
-    if (!chats?.docs.length) route.replace('/');
+    if (!chats?.docs.length) route.replace('/dashboard');
   }
 
   return (
@@ -37,9 +37,9 @@ const SideBar = (): JSX.Element  => {
           <NewChat />
         </div>
 
-        <div className='hidden md:block'>
+        {/* <div className='hidden md:block'>
           <ModelSelection />
-        </div>
+        </div> */}
 
         {/* Map through thre ChatRows */}
         <div className='mt-5 space-y-2'>

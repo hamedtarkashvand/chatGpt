@@ -20,7 +20,7 @@ const NewChat: FC<NewChatProps> = () => {
         createdAt: serverTimestamp()
       }
     );
-    router.push(`/chat/${doc.id}`);
+    router.push(`/dashboard/chat/${doc.id}`);
   }
   return (
     <div

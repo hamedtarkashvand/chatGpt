@@ -2,7 +2,7 @@ import QuestionInput from '@/components/QuestionInput';
 import WrapperAboutAndMessages from '@/components/WrapperAboutAndMessages';
 export default function Home() {
   return (
-    <main className='modal-active flex max-h-screen min-h-full flex-col items-center justify-center overflow-hidden p-5'>
+    <main className='flex min-h-full max-h-screen overflow-hidden flex-col items-center justify-center p-5'>
       <WrapperAboutAndMessages />
       <QuestionInput />
     </main>

@@ -9,8 +9,6 @@ const WrapperMessages: NextPage = ({render}:any) => {
   const { state: chats } = useContext(questionContext);
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
 
-  // if (!chats.length) return <SectionAbout />;
-
   const scrollToBottom = () => {
     messagesEndRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -22,8 +20,7 @@ const WrapperMessages: NextPage = ({render}:any) => {
   return (
     <>
       <div
-       
-        className='mb-6 w-full flex-1 space-y-3 overflow-y-auto p-4  md:max-h-96 md:w-2/4 md:flex-none md:flex-col '>
+        className='mb-6 w-full flex-1 space-y-3 overflow-y-auto p-4 md:max-h-96 md:w-2/4 md:flex-none md:flex-col '>
         {chats?.map((message) => {
           return (
             <Message

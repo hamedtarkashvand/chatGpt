@@ -21,8 +21,11 @@ body {
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+        min-height: -webkit-fill-available;
 }
-
+html{
+    min-height: -webkit-fill-available;
+}
 @layer components {
   .infoText {
     @apply p-4 bg-gray-700/50 rounded-lg max-w-[300px]
@@ -37,14 +40,16 @@ body {
   .ltr {
     direction: ltr;
   }
+
   .rtl {
     direction: rtl;
   }
-    .h-screen {
-      height: 100vh;
-      /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
-    }
-  
-    
+
+  .h-screen {
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(1vh, 1vh) * 100);
+  }
+
+
 }

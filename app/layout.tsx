@@ -20,7 +20,7 @@ export default async function RootLayout({ children }: PropsType) {
       <body>
         <div className='h-screen overflow-hidden'>
           <QuestionProvider>
-            <div className=' bg-[#343541]'>{children}</div>
+            <div className='h-screen bg-[#343541]'>{children}</div>
             <ClientProvider />
           </QuestionProvider>
         </div>

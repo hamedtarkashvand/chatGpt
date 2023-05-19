@@ -51,6 +51,10 @@ html{
     /* Fallback for browsers that do not support Custom Properties */
     height: calc(var(1vh, 1vh) * 100);
   }
-
-
+}
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* The hack for Safari */
+    min-height: -webkit-fill-available;
+  }
 }

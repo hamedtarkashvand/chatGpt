@@ -3,7 +3,6 @@ import { getServerSession } from 'next-auth/next';
 import type { ReactNode } from 'react';
 
 import SideBar from '@/components/SideBar';
-import '@/styles/globals.css';
 import Login from '@/components/Login';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import ClientProvider from '@/components/ClientProvider';

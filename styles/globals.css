@@ -17,16 +17,16 @@
 }
 
 body {
-  min-height: 100vh;
+  /* height: 100vh; */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-        min-height: -webkit-fill-available;
 }
-html{
-    min-height: -webkit-fill-available;
-}
+
+/* Avoid Chrome to see Safari hack */
+
+
 @layer components {
   .infoText {
     @apply p-4 bg-gray-700/50 rounded-lg max-w-[300px]
@@ -35,6 +35,12 @@ html{
   .chatRow {
     @apply px-5 py-3 text-sm flex items-center justify-center space-x-2 hover:bg-gray-700/70 cursor-pointer text-gray-300 transition-all ease-out
   }
+
+  .h-screen {
+    height: calc(100vh - calc(100vh - 100%));
+    /* @apply h-[calc(h-f) - clac()]  */
+  }
+
 }
 
 @layer utilities {
@@ -46,15 +52,5 @@ html{
     direction: rtl;
   }
 
-  .h-screen {
-    height: 100vh;
-    /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(1vh, 1vh) * 100);
-  }
-}
-@supports (-webkit-touch-callout: none) {
-  body {
-    /* The hack for Safari */
-    min-height: -webkit-fill-available;
-  }
+  
 }

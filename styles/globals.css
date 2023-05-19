@@ -17,7 +17,7 @@
 }
 
 body {
-  /* height: 100vh; */
+  height: 100vh;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
       transparent,
@@ -38,7 +38,6 @@ body {
 
   .h-screen {
     height: calc(100vh - calc(100vh - 100%));
-    /* @apply h-[calc(h-f) - clac()]  */
   }
 
 }

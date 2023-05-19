@@ -17,7 +17,7 @@
 }
 
 body {
-  height: 100vh;
+  /* height: 100vh; */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
       transparent,
@@ -36,10 +36,12 @@ body {
     @apply px-5 py-3 text-sm flex items-center justify-center space-x-2 hover:bg-gray-700/70 cursor-pointer text-gray-300 transition-all ease-out
   }
 
-  .h-screen {
-    height: calc(100vh - calc(100vh - 100%));
-  }
 
+  .h-hamed {
+    /* height: 100vh; */
+    height: calc(100vh - calc(100vh - 100%));
+    height: -webkit-fill-available;
+  }
 }
 
 @layer utilities {
@@ -50,6 +52,4 @@ body {
   .rtl {
     direction: rtl;
   }
-
-  
 }

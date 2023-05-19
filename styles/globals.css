@@ -31,20 +31,27 @@ body {
   .chatRow {
     @apply px-5 py-3 text-sm flex items-center justify-center space-x-2 hover:bg-gray-700/70 cursor-pointer text-gray-300 transition-all ease-out
   }
+
+  .modal-active {
+    @apply touch-none overscroll-none overflow-hidden;
+  }
+  /* -webkit-overflow-scrolling: none; */
 }
 
 @layer utilities {
   .ltr {
     direction: ltr;
   }
+
   .rtl {
     direction: rtl;
   }
-    .h-screen {
-      height: 100vh;
-      /* Fallback for browsers that do not support Custom Properties */
+
+  .h-screen {
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
     height: calc(var(--vh, 1vh) * 100);
-    }
-  
-    
+  }
+
+
 }

@@ -21,13 +21,11 @@ export default async function handler(
   }
 
   if (!chatId) {
-    res.status(400).json({ answer: 'please provide a valid chat id'});
+    res.status(400).json({ answer: 'please provide a valid chat id' });
   }
 
   try {
     const response = await query(prompt, chatId, model);
-      
-
     const message: Message = {
       text: response || 'Chat Gpt was unable to find an answer for that!',
       createdAt: admin.firestore.Timestamp.now(),
@@ -44,14 +42,14 @@ export default async function handler(
       .collection('chats')
       .doc(chatId)
       .collection('messages')
-      .add(message).then(() => {
-         res.status(200).json({ answer: message.text });
-      }).catch((err) => {
-        res.status(500).json({ answer: err});
+      .add(message)
+      .then(() => {
+        res.status(200).json({ answer: message.text });
+      })
+      .catch((err) => {
+        res.status(500).json({ answer: err });
       });
-
-   
-  } catch(err) {
-    res.status(500).json({answer: 'errore jojo'});
+  } catch (err) {
+    res.status(500).json({ answer: 'errore jojo' });
   }
 }

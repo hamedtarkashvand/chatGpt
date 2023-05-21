@@ -87,7 +87,7 @@ const QuestionInput: NextComponentType<NextPageContext, {}, Props> = (
   };
 
   return (
-    <div className=' w-full rounded-md  bg-gray-700 text-sm text-gray-400 focus:bg-red-300  shadow-md md:w-2/4'>
+    <div className=' w-full rounded-md  bg-gray-700 text-sm text-gray-400 shadow-md  focus:bg-red-300 md:w-2/4'>
       <form
         // onFocus={()}
         action=''
@@ -102,10 +102,9 @@ const QuestionInput: NextComponentType<NextPageContext, {}, Props> = (
           className={`flex-1  bg-transparent focus:outline-none disabled:cursor-not-allowed disabled:text-gray-300 `}
           placeholder=' type your questions here...'
         />
-
         <button
           type='submit'
-          // disabled={!prompt || loading}
+          disabled={!prompt || loading}
           className='rounded bg-[#11A37F] px-4 py-2 font-bold text-white hover:opacity-50 disabled:cursor-not-allowed'>
           <PaperAirplaneIcon className='h-4 w-4 -rotate-45' />
         </button>

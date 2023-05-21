@@ -5,6 +5,7 @@ import { isRTL } from '@/utils';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import remarkGfm from 'remark-gfm';
 type TProps = {
   message: DocumentData;
 };
@@ -31,7 +32,7 @@ const Message: NextPage<TProps> = ({ message }) => {
         <ReactMarkdown
           className={`message__markdown `}
           children={text}
-          // remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
+          remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
           components={{
             code({ node, inline, className, children, ...props }) {              
               const match = /language-(\w+)/.exec(className || 'language-js');

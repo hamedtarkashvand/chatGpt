@@ -87,7 +87,7 @@ const QuestionInput: NextComponentType<NextPageContext, {}, Props> = (
   };
 
   return (
-    <div className=' w-full rounded-md  bg-gray-700 text-sm text-gray-400 shadow-md  focus:bg-red-300 md:w-2/4'>
+    <div className=' w-full rounded-md  bg-gray-700 text-sm text-gray-400 shadow-md  focus:bg-red-300'>
       <form
         // onFocus={()}
         action=''
@@ -109,7 +109,7 @@ const QuestionInput: NextComponentType<NextPageContext, {}, Props> = (
           <PaperAirplaneIcon className='h-4 w-4 -rotate-45' />
         </button>
       </form>
-      <div className='md:hidden'>{/* <ModelSelection /> */}</div>
+      {/* <div className=''> <ModelSelection /> </div> */}
     </div>
   );
 };

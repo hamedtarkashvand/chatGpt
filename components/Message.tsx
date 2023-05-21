@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import type { NextPage } from 'next';
 import { DocumentData } from 'firebase/firestore';
 import { isRTL } from '@/utils';
@@ -15,8 +15,8 @@ const Message: NextPage<TProps> = ({ message }) => {
     user: { avatar, name, _id },
     text,
   } = message;
- const isChatGpt = name == 'Chat Gpt';
- 
+  const isChatGpt = name == 'Chat Gpt';
+
   return (
     <div
       className={`mx-auto flex  space-x-2 rounded-lg bg-[#202123] p-2 ${
@@ -34,12 +34,13 @@ const Message: NextPage<TProps> = ({ message }) => {
           children={text}
           remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
           components={{
-            code({ node, inline, className, children, ...props }) {              
+            code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || 'language-js');
-              
+
               return !inline && match ? (
                 <SyntaxHighlighter
                   children={String(children).replace(/\n$/, '')}
+                  // @ts-ignore
                   style={atomDark}
                   className='p-3'
                   language={match[1]}

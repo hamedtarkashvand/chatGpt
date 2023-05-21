@@ -14,7 +14,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { prompt, chatId, model, session } = req.body;
+  const { prompt, chatId, model} = req.body;
 
   if (!prompt) {
     res.status(400).json({ answer: 'please provide a prompt' });
@@ -27,30 +27,13 @@ export default async function handler(
   try {
     const response = await query(prompt, chatId, model);
       
-
-    const message: Message = {
-      text: response || 'Chat Gpt was unable to find an answer for that!',
-      createdAt: admin.firestore.Timestamp.now(),
-      user: {
-        _id: 'Chat Gpt',
-        name: 'Chat Gpt',
-        avatar: '/static/logo.png',
-      },
-    };
-
-    await adminDb
-      .collection('users')
-      .doc(session?.user?.email)
-      .collection('chats')
-      .doc(chatId)
-      .collection('messages')
-      .add(message).then(() => {
-         res.status(200).json({ answer: message.text });
-      }).catch((err) => {
-        res.status(500).json({ answer: err});
-      });
-
-   
+       res
+         .status(200)
+         .json({
+           answer:
+             response || 'Chat Gpt was unable to find an answer for that!',
+         });
+      
   } catch(err) {
     res.status(500).json({answer: 'errore jojo'});
   }

@@ -49,7 +49,7 @@ const QuestionInput: NextComponentType<NextPageContext, {}, Props> = (
     );
 
     try {
-      const response = await fetch('/api/askQuestion', {
+      const response = await fetch('/api/publicAskQuestion', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

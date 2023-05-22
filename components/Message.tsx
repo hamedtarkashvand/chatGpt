@@ -19,7 +19,7 @@ const Message: NextPage<TProps> = ({ message }) => {
 
   return (
     <div
-      className={`mx-auto flex  space-x-2 rounded-lg bg-[#202123] p-2 ${
+      className={`mx-auto flex   space-x-2 rounded-lg bg-[#202123] p-2 ${
         isChatGpt && 'bg-[#434654]'
       }`}>
       <img
@@ -27,7 +27,10 @@ const Message: NextPage<TProps> = ({ message }) => {
         src={avatar}
         alt='avatar'
       />
-      <div className={`flex flex-1 flex-col ${isRTL(text) && 'rtl'}`}>
+      <div
+        className={`flex flex-grow  flex-col overflow-hidden overflow-x-auto ${
+          isRTL(text) && 'rtl'
+        }`}>
         <p className='text-sm text-white/70'>{name}</p>
         <ReactMarkdown
           className={`message__markdown `}

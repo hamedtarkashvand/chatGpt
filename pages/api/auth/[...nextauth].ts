@@ -7,7 +7,7 @@ export const authOptions = {
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET!,
       httpOptions: {
-        timeout: 3000,
+        timeout: 4000,
       },
     }),
     // ...add more providers here

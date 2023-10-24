@@ -35,7 +35,7 @@ export default async function handler(
         avatar: '/static/logo.png',
       },
     };
-
+cons         
     await adminDb
       .collection('users')
       .doc(session?.user?.email)
